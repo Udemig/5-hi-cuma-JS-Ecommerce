@@ -1,0 +1,144 @@
+@import "variable";
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $font-normal;
+}
+
+.errorInput{
+    font-size: 13px;
+    font-weight: 300;
+    text-align: start;
+    color: transparent;//errorInput clasına ait hatalari gizler
+}
+
+
+.modal{
+    position: absolute;
+    /* 
+    1.yontem
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    /* 2.yontem */
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;//js ile flex yapilacak
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    &-content{
+        background-color: black;
+        color: white;
+        width: 50%;
+        height: 250px;
+        text-align: center;
+        padding: 20px 0;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        span{
+            margin-top: 15px;
+            color: white;
+            text-transform: uppercase;
+            b{
+                font-weight: 700;
+                color: #f69f29;
+            }
+        }
+        p{
+            font-weight: 400;
+            padding-top: 15px;
+            color: white;
+        }
+        i{
+            color: green;
+            font-size: 100px;
+        }
+
+    }
+
+    
+}
+
+.login,
+.register{
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(120deg,orange 20%,rgb(55, 12, 101) 91%) ;
+    position: relative;//modal icin kullanilacak
+    display: flex;
+    align-items: center;//yatay ise dikey olarak ortalar , dikey isede genisikte ortalar
+    justify-content: center;
+
+    &-title{//register-title ve login-title classi icin
+        text-align: center;
+        font-size: 32px;
+        color: $color-title;
+    }
+
+    &-form{//form etiketi oldugu icin direk form seklinde de KULLANILIR
+        background-color: white;
+        width: 50%;
+        display: flex;
+        flex-direction: column;//dikey hale
+        padding:30px;
+        border-radius: 20px;
+        box-shadow: 3px 6px 10px black;
+
+        &-group{//register-form-group classi için
+            margin-bottom: 15px;
+            
+            label{
+                color: $color-title;
+                margin-bottom: 5px;
+                display: block;//bulundugu satırın tamammını kullanır
+            }
+            input[type="text"],
+            input[type="password"]{//input type değeri text ve password olanlar
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius:5px ;
+                color: #333;
+            }
+        }
+
+        &-button{
+            text-align: center;
+            .btn-login,
+            .btn-register{
+                padding: 10px 20px;
+                background-color: #2c234d;
+                color: white;
+                border: none;
+                border-radius: 3px;
+                text-transform: uppercase;//harfleri buyuk yapar
+                cursor: pointer;
+                font-weight: 600;
+                transition: ease .4s;
+            }
+            .btn-register{
+                background-color: #6fdae7;
+                color: #2c234d;
+            }
+            .btn-register:hover{
+                background-color: #2c234d;
+                color: white;
+            }
+            .btn-login:hover{
+                background-color: #6fdae7;
+                color: #2c234d;
+            }
+        }
+    }
+
+}
