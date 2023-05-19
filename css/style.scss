@@ -1,144 +1,440 @@
 @import "variable";
+@import "mixin";
 
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: $font-normal;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font-normal;
 }
 
-.errorInput{
-    font-size: 13px;
-    font-weight: 300;
-    text-align: start;
-    color: transparent;//errorInput clasına ait hatalari gizler
+.errorInput {
+  font-size: 13px;
+  font-weight: 300;
+  text-align: start;
+  color: transparent; //errorInput clasına ait hatalari gizler
 }
 
-
-.modal{
-    position: absolute;
-    /* 
+.modal {
+  position: absolute;
+  /* 
     1.yontem
     top: 0;
     left: 0;
     right: 0;
     bottom: 0; */
-    /* 2.yontem */
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    display: none;//js ile flex yapilacak
+  /* 2.yontem */
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: none; //js ile flex yapilacak
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  &-content {
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 250px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.7);
-    &-content{
-        background-color: black;
-        color: white;
-        width: 50%;
-        height: 250px;
-        text-align: center;
-        padding: 20px 0;
-        border-radius: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        span{
-            margin-top: 15px;
-            color: white;
-            text-transform: uppercase;
-            b{
-                font-weight: 700;
-                color: #f69f29;
-            }
-        }
-        p{
-            font-weight: 400;
-            padding-top: 15px;
-            color: white;
-        }
-        i{
-            color: green;
-            font-size: 100px;
-        }
-
+    span {
+      margin-top: 15px;
+      color: white;
+      text-transform: uppercase;
+      b {
+        font-weight: 700;
+        color: #f69f29;
+      }
     }
-
-    
+    p {
+      font-weight: 400;
+      padding-top: 15px;
+      color: white;
+    }
+    i {
+      color: green;
+      font-size: 100px;
+    }
+  }
 }
 
 .login,
-.register{
-    width: 100%;
-    height: 100vh;
-    background:linear-gradient(120deg,orange 20%,rgb(55, 12, 101) 91%) ;
-    position: relative;//modal icin kullanilacak
+.register {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(120deg, orange 20%, rgb(55, 12, 101) 91%);
+  position: relative; //modal icin kullanilacak
+  display: flex;
+  align-items: center; //yatay ise dikey olarak ortalar , dikey isede genisikte ortalar
+  justify-content: center;
+
+  &-title {
+    //register-title ve login-title classi icin
+    text-align: center;
+    font-size: 32px;
+    color: $color-title;
+  }
+
+  &-form {
+    //form etiketi oldugu icin direk form seklinde de KULLANILIR
+    background-color: white;
+    width: 50%;
     display: flex;
-    align-items: center;//yatay ise dikey olarak ortalar , dikey isede genisikte ortalar
-    justify-content: center;
+    flex-direction: column; //dikey hale
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 3px 6px 10px black;
 
-    &-title{//register-title ve login-title classi icin
-        text-align: center;
-        font-size: 32px;
+    &-group {
+      //register-form-group classi için
+      margin-bottom: 15px;
+
+      label {
         color: $color-title;
+        margin-bottom: 5px;
+        display: block; //bulundugu satırın tamammını kullanır
+      }
+      input[type="text"],
+      input[type="password"] {
+        //input type değeri text ve password olanlar
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: #333;
+      }
     }
 
-    &-form{//form etiketi oldugu icin direk form seklinde de KULLANILIR
-        background-color: white;
-        width: 50%;
+    &-button {
+      text-align: center;
+      .btn-login,
+      .btn-register {
+        padding: 10px 20px;
+        background-color: #2c234d;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        text-transform: uppercase; //harfleri buyuk yapar
+        cursor: pointer;
+        font-weight: 600;
+        transition: ease 0.4s;
+      }
+      .btn-register {
+        background-color: #6fdae7;
+        color: #2c234d;
+      }
+      .btn-register:hover {
+        background-color: #2c234d;
+        color: white;
+      }
+      .btn-login:hover {
+        background-color: #6fdae7;
+        color: #2c234d;
+      }
+    }
+  }
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  padding: 20px 50px;
+  position: relative; //for-submenu icin
+
+  &-left {
+    display: flex;
+    align-items: center;
+    flex: 1; //oran olarak kullanir
+    // width: 100%;
+    &-logo {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-right: 30px;
+      a {
+        position: relative;
+        font-size: 32px;
+        text-decoration: none;
+        font-weight: 700;
+        color: black;
+      }
+      .circle {
+        position: absolute;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: rgb(235, 220, 237);
+        top: -15px;
+        left: -15px;
+        z-index: -1;
+      }
+      .circle::before {
+        //circle before
+        content: "";
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: blue;
+        opacity: 0.4;
+        right: 5px;
+        top: 5px;
+      }
+      i {
+        display: none;
+        font-size: 24px;
+        /* RESPONSIVE */
+        @include tablet {
+          //tablet icin
+          display: flex;
+        }
+        @include mobile {
+          display: flex;
+        }
+        &:hover {
+          cursor: pointer;
+          color: red;
+          transform: scale(1.1);
+          transition: ease 0.5s;
+        }
+      }
+    }
+
+    &-menu {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      height: 100%;
+      @include tablet {
+        display: none;
+      }
+      @include mobile {
+        display: none;
+      }
+
+
+      li {
+        list-style-type: none;
         display: flex;
-        flex-direction: column;//dikey hale
-        padding:30px;
-        border-radius: 20px;
-        box-shadow: 3px 6px 10px black;
+        &:nth-child(3) {
+          //3.li etiketi
+          display: flex;
+          gap: 6px;
+          align-items: center;
 
-        &-group{//register-form-group classi için
-            margin-bottom: 15px;
-            
-            label{
-                color: $color-title;
-                margin-bottom: 5px;
-                display: block;//bulundugu satırın tamammını kullanır
+          .for-submenu {
+            height: 50px;
+            padding-top: 14px;
+            /*for-submenu ye hover olunca ki submenu kodlari  */
+            &:hover .submenu {
+              //for-submenunun uzerine gelince submenu classini display:flex yaptik
+              display: flex;
+              position: absolute;
+              background-color: #e0e0e0;
+              left: 0;
+              right: 0;
+              top: 70px;
+              z-index: 5;
             }
-            input[type="text"],
-            input[type="password"]{//input type değeri text ve password olanlar
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius:5px ;
-                color: #333;
+
+            .submenu {
+              ul {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                padding: 40px 0 40px 40px;//saat yonunde
+                li{
+                    &:first-child{//li etiketi icindeki ilk elemani secer  
+                        a{
+                            font-weight: 700;
+                        }
+                    }
+                    a{
+                        margin-top: 5px;
+                        color: darkblue;
+                        font-size: 14px;
+                    }
+                }
+              }
+              &-advert {//submenu-advert
+                flex: 1;
+                //submenu-advert classi icin
+                background-color: #e0e0e0;
+                margin-top: 50px;
+                position: relative;
+                &-wanted{//submenu-advert-wanted
+                    position: absolute;
+                    bottom: 62%;
+                    text-align: center;
+                    width: 88%;
+                    h3{
+                        color: #1625c1;
+                        opacity: 0.8;
+                        font-size: 24px;
+                        width: min-content;
+                        margin: auto;
+                        font-weight: 800;
+                    }
+                    button{
+                        background-color: #fd6c69;
+                        padding: 5px 10px;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        font-weight: 500;
+                        @include btn-hover;
+                        border-radius: 20px;
+                    }
+                }
+                img {
+                  width: 88%;
+                  height: 90%;
+                  object-fit: cover;
+                  opacity: 0.7;
+                }
+              }
             }
+          }
         }
 
-        &-button{
-            text-align: center;
-            .btn-login,
-            .btn-register{
-                padding: 10px 20px;
-                background-color: #2c234d;
-                color: white;
-                border: none;
-                border-radius: 3px;
-                text-transform: uppercase;//harfleri buyuk yapar
-                cursor: pointer;
-                font-weight: 600;
-                transition: ease .4s;
-            }
-            .btn-register{
-                background-color: #6fdae7;
-                color: #2c234d;
-            }
-            .btn-register:hover{
-                background-color: #2c234d;
-                color: white;
-            }
-            .btn-login:hover{
-                background-color: #6fdae7;
-                color: #2c234d;
-            }
+        a {
+          text-decoration: none;
+          color: black;
+          font-weight: 300;
+        }
+      }
+      /* li:nth-child(3){//3.li etiketi
+        } */
+
+        /* yeni yazan KISMIN classi */
+        .for-count{
+            position: relative;
+        }
+        .count{
+            @include sayac;
+            font-size: 13px;
+            right: -35px;
         }
     }
 
+    .submenu {
+      display: none;
+    }
+  }
+  &-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    &-favorite{
+        position: relative;//count kismi icin
+        padding-bottom: 3px;
+        @include btn-hover;
+        i{
+            font-size: 24px;
+            color: black;
+        }
+        .count{
+            @include sayac;
+            background-color: #f69f29;
+            color: black;
+            right: -8px;
+            top: -15px;
+        }
+    }
+    &-cart{
+        position: relative;//count icin
+        padding-bottom: 3px;
+        @include btn-hover;
+        i{
+            font-size: 24px;
+            color: black;
+        }
+        .count{
+            @include sayac;
+            color: black;
+            background-color: #f69f29;
+            right: -8px;
+            top: -15px;
+        }
+    }
+    &-price{
+        width: 60px;
+        font-size: 13px;
+        padding: 0 5px;
+        background-color: #f69f29;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+
+  }
+}
+
+
+/* OFFCANVAS MENU */
+.offcanvas{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    left: -50%;
+    z-index: 15;
+    top: 0px;
+    background-color: white;
+    border: 7px solid red;
+    
+    &-top{//offcanvas-top
+        background-color: #453c5a;
+        padding: 30px;
+        border-bottom-right-radius:120px  20px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row-reverse;//yatay ve ters hizalama
+
+
+        a {
+            position: relative;
+            font-size: 32px;
+            text-decoration: none;
+            font-weight: 700;
+            color: white;
+            z-index: 15;
+          }
+          .circle {
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: rgb(235, 220, 237);
+            top: -15px;
+            left: -15px;
+            z-index: -1;
+          }
+          .circle::before {
+            //circle before
+            content: "";
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: blue;
+            opacity: 0.4;
+            right: 5px;
+            top: 5px;
+          }
+          i{
+            @include btn-hover;
+            color: white;
+            &:hover{
+                color: rgb(76, 25, 25);
+            }
+          }
+    }
 }
