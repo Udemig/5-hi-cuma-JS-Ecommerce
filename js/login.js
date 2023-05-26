@@ -52,7 +52,8 @@ form.addEventListener("submit", function (e) {
     passwordInput.focus();
   } else passwordError.style.color = "transparent";
 
-  if (usernameInput.value === "" && passwordInput.value === "") {
+  //ikiside bos ise
+  if (usernameInput.value === "" || passwordInput.value === "") {
     return; //donguden cikar
   }
   console.log("IKISIDE DOLU OLDUĞU İÇİN DEVAM ETTİ");

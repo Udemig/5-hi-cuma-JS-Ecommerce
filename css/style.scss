@@ -219,7 +219,6 @@
         display: none;
       }
 
-
       li {
         list-style-type: none;
         display: flex;
@@ -249,49 +248,52 @@
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                padding: 40px 0 40px 40px;//saat yonunde
-                li{
-                    &:first-child{//li etiketi icindeki ilk elemani secer  
-                        a{
-                            font-weight: 700;
-                        }
+                padding: 40px 0 40px 40px; //saat yonunde
+                li {
+                  &:first-child {
+                    //li etiketi icindeki ilk elemani secer
+                    a {
+                      font-weight: 700;
                     }
-                    a{
-                        margin-top: 5px;
-                        color: darkblue;
-                        font-size: 14px;
-                    }
+                  }
+                  a {
+                    margin-top: 5px;
+                    color: darkblue;
+                    font-size: 14px;
+                  }
                 }
               }
-              &-advert {//submenu-advert
+              &-advert {
+                //submenu-advert
                 flex: 1;
                 //submenu-advert classi icin
                 background-color: #e0e0e0;
                 margin-top: 50px;
                 position: relative;
-                &-wanted{//submenu-advert-wanted
-                    position: absolute;
-                    bottom: 62%;
-                    text-align: center;
-                    width: 88%;
-                    h3{
-                        color: #1625c1;
-                        opacity: 0.8;
-                        font-size: 24px;
-                        width: min-content;
-                        margin: auto;
-                        font-weight: 800;
-                    }
-                    button{
-                        background-color: #fd6c69;
-                        padding: 5px 10px;
-                        color: white;
-                        border: none;
-                        cursor: pointer;
-                        font-weight: 500;
-                        @include btn-hover;
-                        border-radius: 20px;
-                    }
+                &-wanted {
+                  //submenu-advert-wanted
+                  position: absolute;
+                  bottom: 62%;
+                  text-align: center;
+                  width: 88%;
+                  h3 {
+                    color: #1625c1;
+                    opacity: 0.8;
+                    font-size: 24px;
+                    width: min-content;
+                    margin: auto;
+                    font-weight: 800;
+                  }
+                  button {
+                    background-color: #fd6c69;
+                    padding: 5px 10px;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: 500;
+                    @include btn-hover;
+                    border-radius: 20px;
+                  }
                 }
                 img {
                   width: 88%;
@@ -313,15 +315,15 @@
       /* li:nth-child(3){//3.li etiketi
         } */
 
-        /* yeni yazan KISMIN classi */
-        .for-count{
-            position: relative;
-        }
-        .count{
-            @include sayac;
-            font-size: 13px;
-            right: -35px;
-        }
+      /* yeni yazan KISMIN classi */
+      .for-count {
+        position: relative;
+      }
+      .count {
+        @include sayac;
+        font-size: 13px;
+        right: -35px;
+      }
     }
 
     .submenu {
@@ -332,109 +334,525 @@
     display: flex;
     gap: 15px;
     align-items: center;
-    &-favorite{
-        position: relative;//count kismi icin
-        padding-bottom: 3px;
-        @include btn-hover;
-        i{
-            font-size: 24px;
-            color: black;
-        }
-        .count{
-            @include sayac;
-            background-color: #f69f29;
-            color: black;
-            right: -8px;
-            top: -15px;
-        }
-    }
-    &-cart{
-        position: relative;//count icin
-        padding-bottom: 3px;
-        @include btn-hover;
-        i{
-            font-size: 24px;
-            color: black;
-        }
-        .count{
-            @include sayac;
-            color: black;
-            background-color: #f69f29;
-            right: -8px;
-            top: -15px;
-        }
-    }
-    &-price{
-        width: 60px;
-        font-size: 13px;
-        padding: 0 5px;
+    &-favorite {
+      position: relative; //count kismi icin
+      padding-bottom: 3px;
+      @include btn-hover;
+      i {
+        font-size: 24px;
+        color: black;
+      }
+      .count {
+        @include sayac;
         background-color: #f69f29;
-        border-radius: 5px;
-        font-weight: 500;
+        color: black;
+        right: -8px;
+        top: -15px;
+      }
     }
-
+    &-cart {
+      position: relative; //count icin
+      padding-bottom: 3px;
+      @include btn-hover;
+      i {
+        font-size: 24px;
+        color: black;
+      }
+      .count {
+        @include sayac;
+        color: black;
+        background-color: #f69f29;
+        right: -8px;
+        top: -15px;
+      }
+    }
+    &-price {
+      width: 60px;
+      font-size: 13px;
+      padding: 0 5px;
+      background-color: #f69f29;
+      border-radius: 5px;
+      font-weight: 500;
+    }
   }
 }
 
-
 /* OFFCANVAS MENU */
-.offcanvas{
-    position: fixed;
-    width: 300px;
-    height: 100%;
-    left: -50%;
-    z-index: 15;
-    top: 0px;
-    background-color: white;
-    border: 7px solid red;
-    
-    &-top{//offcanvas-top
-        background-color: #453c5a;
-        padding: 30px;
-        border-bottom-right-radius:120px  20px;
+.offcanvas {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  left: -50%;
+  z-index: 15;
+  top: 0px;
+  background-color: white;
+  overflow: auto;
+
+  &-top {
+    //offcanvas-top
+    background-color: #453c5a;
+    padding: 30px;
+    border-bottom-right-radius: 120px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row-reverse; //yatay ve ters hizalama
+
+    a {
+      position: relative;
+      font-size: 32px;
+      text-decoration: none;
+      font-weight: 700;
+      color: white;
+      z-index: 15;
+    }
+    .circle {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: rgb(235, 220, 237);
+      top: -15px;
+      left: -15px;
+      z-index: -1;
+    }
+    .circle::before {
+      //circle before
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: blue;
+      opacity: 0.4;
+      right: 5px;
+      top: 5px;
+    }
+    i {
+      @include btn-hover;
+      color: white;
+      &:hover {
+        color: rgb(76, 25, 25);
+      }
+    }
+  }
+
+  &-middle {
+    //offcanvas-midlle
+    padding: 30px;
+    border-bottom: 1px solid rgba(83, 80, 80, 0.542);
+    li {
+      list-style-type: none;
+      margin-top: 20px;
+      a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+          color: #7360b8;
+        }
+      }
+      &:nth-child(3) {
+        //3. li etiketi
         display: flex;
-        align-items: center;
-        width: 100%;
-        justify-content: space-between;
-        flex-direction: row-reverse;//yatay ve ters hizalama
-
-
+        flex-direction: column;
+        gap: 5px;
         a {
-            position: relative;
-            font-size: 32px;
-            text-decoration: none;
-            font-weight: 700;
-            color: white;
-            z-index: 15;
-          }
-          .circle {
-            position: absolute;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background-color: rgb(235, 220, 237);
-            top: -15px;
-            left: -15px;
-            z-index: -1;
-          }
-          .circle::before {
-            //circle before
-            content: "";
-            position: absolute;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: blue;
-            opacity: 0.4;
-            right: 5px;
-            top: 5px;
-          }
-          i{
-            @include btn-hover;
-            color: white;
-            &:hover{
-                color: rgb(76, 25, 25);
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .submenu {
+          display: none;
+          flex-direction: column;
+          padding-left: 10px;
+          ul {
+            li {
+              &:first-child {
+                font-weight: 200;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.456);
+              }
+              font-weight: 500;
             }
           }
+        }
+      }
     }
+
+    .submenu-advert {
+      display: none;
+    }
+  }
 }
+
+/* HEADER-MAIN */
+.header-main {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  padding-bottom: 0;
+
+  &-left {
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    min-width: 200px;
+    background-color: orange;
+    border-radius: 20px 20px 0 0; //saat yonunde top-left top-right bottom-right bottom-left
+    position: relative; //mainmenuyÜ açmak için
+
+    .department {
+      text-align: start;
+      span {
+        font-size: 12px;
+      }
+    }
+
+    .for-mainmenu {
+      .fa-bars {
+        //acma iconu
+        font-size: 20px;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+          transition: ease 0.3s;
+          color: gray;
+        }
+      }
+    }
+    .mainmenu {
+      //altmenu
+      display: none; //flex oldugunda acilacak
+      position: absolute;
+      // position: relative; dememe gerek kalmadi absolute olarak kul. icin
+      background-color: white;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      z-index: 2;
+      top: 57px;
+      &s {
+        //mainmenus classina sahip olanlar icin
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(118, 102, 102, 0.37);
+        border-top: 0;
+        padding: 10px;
+        padding-right: 0;
+        justify-content: space-between;
+        gap: 5px;
+
+        span {
+          flex: 1;
+          text-align: start;
+        }
+
+        .for-mainmenu-side {
+          i {
+            padding-right: 10px;
+            &:hover {
+              color: gray;
+              transform: scale(1.1);
+              transition: ease 0.5s;
+              cursor: pointer;
+            }
+          }
+          //for-mainmenu-side classının uzerıne gelınce maınmenu-side classını gorunur hale getırme
+          &:hover .mainmenu-side {
+            display: flex;
+          }
+        }
+
+        .mainmenu-side {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 99.9%;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          background: linear-gradient(
+              to right,
+              rgba(222, 216, 216, 0.9) 30%,
+              transparent
+            ),
+            url("https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+          background-size: cover;
+          background-position: 30%;
+          ul {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 20px;
+            li {
+              list-style-type: none;
+              margin-top: 15px;
+              a {
+                text-decoration: none;
+                color: black;
+                font-weight: 300;
+                &:hover {
+                  color: #7360b8;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &-right {
+    width: 40%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    i {
+      padding: 10px;
+    }
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 15px;
+      border-radius: 0 15px 15px 0;
+      border: none;
+      font-weight: 600;
+      background: orange;
+    }
+  }
+}
+
+/* SWIPPER SLIDER */
+.slider {
+  width: 100%;
+  .swiper {
+    width: 100%;
+
+    &-pagination {
+      //swiper-pagination
+      .swiper-pagination-bullet {
+        background-color: red;
+        opacity: 0.7;
+      }
+      .swiper-pagination-bullet-active {
+        background-color: yellow;
+      }
+    }
+  }
+
+  .swiper-slide {
+    height: 400px;
+    position: relative;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    h1 {
+      position: absolute;
+      z-index: 2;
+      color: black;
+      top: 15%;
+      right: 10%;
+      background: rgba(255, 255, 255, 0.541);
+      padding: 20px;
+      border-radius: 20px;
+      width: 350px;
+    }
+  }
+}
+
+/* PRODUCT */
+
+.product {
+  border: 10px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.198);
+
+  &-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: black;
+    border-bottom: 3px solid #f69f29;
+    padding: 0 30px;
+    margin: 40px 0;
+  }
+  &-card {
+    //product-card
+    display: flex;
+
+    &-left {
+      //product-card-left
+      padding: 50px 0;
+      border: 5px solid green;
+      display: flex;
+      width: 70%;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-left: 50px;
+
+      .card {
+        background-color: white;
+        border-radius: 20px;
+        width: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 2px 9px gray;
+        &:hover {
+          transform: translate(5px, -5px);
+          transition: ease 0.5s;
+        }
+        &-rate {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          padding: 5px 20px;
+          i {
+            color: #f69f29;
+          }
+          span {
+            padding-top: 2px;
+          }
+        }
+        &-process {
+          display: flex;
+          align-items: center;
+          margin: 5px;
+          padding: 5px 20px;
+          gap: 10px;
+          width: 100%;
+          justify-content: space-between;
+          i {
+            color: red;
+          }
+          button {
+            width: 80px;
+            color: #f69f29;
+            font-weight: 700;
+            padding: 7px 10px;
+            border: 1px solid gray;
+            background-color: black;
+            border-radius: 20px;
+            &:hover {
+              cursor: pointer;
+              color: white;
+            }
+          }
+        }
+        h3 {
+          width: 100%;
+          padding: 5px 10px;
+          /* 1.yontem */
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          /* 2.YONTEM 
+        -webkit-line-clamp: metnin kaç satıra sığacağını belirler.
+        -webkit-box-orient: kutunun yatay (horizontal) veya dikey (vertical) olarak nasıl hizalanacağını belirler.
+        display: -webkit-box; /* Eski tarayıcılar için 
+        -webkit-line-clamp: 2;  Metnin kaç satıra sığacağını belirler 
+        -webkit-box-orient: vertical; Eski tarayıcılar için 
+        overflow: hidden;  Metnin taşan kısmını gizler 
+        text-overflow: ellipsis;  Taşan kısmın yerine üç nokta koyar 
+        */
+        /* -webkit-line-clamp: 2;
+        display: -webkit-box;
+        overflow: hidden; 
+        text-overflow:ellipsis;
+        -webkit-box-orient: vertical; */
+        }
+
+        img {
+          width: 100%;
+          height: 250px;
+          object-fit: contain;
+          padding: 20px;
+        }
+      }
+    }
+    &-right {
+      border: 5px solid purple;
+      width: 30%;
+
+      .filter-options{
+        margin-right: 50px;
+        background-color: white;
+        border-radius: 0 0 10px 10px;
+      }
+
+      h3{
+        padding: 5px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.392);
+      }
+      .category-filter{
+        display: flex;
+        flex-direction: column;
+        padding: 10px 5px;
+        label:first-child{
+          color: rgba(128, 128, 128, 0.61);
+          padding: 5px;
+        }
+        label{
+          font-weight: 600;
+        }
+        select{
+          border: none;
+          color: rgba(96, 90, 90, 0.886);
+          padding: 5px;
+        }
+      }
+      .price-filter{
+        display: flex;
+        flex-direction: column;
+        padding: 10px 5px;
+        border-top: 1px solid red;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* GENISLIK */
+}
+
+/* KAYDIRMA CUBUGU ICIN ARKA PLAN RENGI */
+::-webkit-scrollbar-track {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+/* KAYDIRMA CUBUGU ICIN YUVARLAK KENARLIKLAR */
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* 
+.altmenu{
+  background-color: aqua;
+  border: 1px solid red;
+  ul{
+    display: none;
+  }
+  &:hover ul{
+    display: flex;
+    flex-direction: column;
+  }
+} */

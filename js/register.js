@@ -73,7 +73,7 @@ form.addEventListener("submit", function(e){
         passwordError.style.color='transparent'
     }
     //en az 1 ide bos oldugunda
-    if (nameInput.value==='' && usernameInput.value==='' && passwordInput.value==='') {
+    if (nameInput.value==='' || usernameInput.value==='' || passwordInput.value==='') {
         return //return ile donguden cikar
     }
 
