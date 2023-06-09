@@ -349,7 +349,7 @@ myQuestion.addEventListener("keypress", () => {
     fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer OPEN_AI_API_KEY`,
         "Content-Type": "application/json",
       },
       //FETCH API, body parametresine gonderilen JSON formatında çalışır.
